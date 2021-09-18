@@ -7,6 +7,10 @@
 
 
 
+点击链接查看帮助文件：https://github.com/LHTXQ/To-do_List/blob/main/To-do_List.Help.rtf
+
+
+
 帮助内容
 
 一、	软件界面布局

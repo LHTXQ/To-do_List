@@ -1,7 +1,13 @@
 # 待办清单（To-do_List）
 
-![image](https://user-images.githubusercontent.com/38943319/134269308-a7f245b6-3d91-4af3-bfb1-a09e874ed400.png)
+![image](https://user-images.githubusercontent.com/38943319/134313975-91ac0526-d01c-404a-8ba6-373018fa82cb.png)
 
+
+2021-09-22 待办清单 版本号：1.1.1.1 下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.1.1.1
+
+	1、新增：可设置是否开机自动启动。
+	
+	
 
 2021-09-22 待办清单 版本号：1.0.1.1 下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.0.1.1
 

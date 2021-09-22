@@ -80,7 +80,7 @@ namespace To_do_List
             Versionlabel.Name = "Versionlabel";
             Versionlabel.Size = new System.Drawing.Size(91, 11);
             Versionlabel.TabIndex = 5;
-            Versionlabel.Text = "版本号：1.0.1.1";
+            Versionlabel.Text = "版本号：1.1.1.1";
             Versionlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2

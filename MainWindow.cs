@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 //using System.Text.RegularExpressions;
 using System.Media;
-
+using Microsoft.Win32;
 
 namespace To_do_List
 {
@@ -38,7 +38,7 @@ namespace To_do_List
                     //File.Create(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data").Write(info,0,info.Length);
                     //换了个写入的实现方法。
                     StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
-                    write.WriteLine("1.0.1.1\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\n---------------------------------------------------------------");
+                    write.WriteLine("1.1.1.1\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\n---------------------------------------------------------------");
                     write.Close();
                 }
                 catch
@@ -92,9 +92,9 @@ namespace To_do_List
             } while (!reader.EndOfStream);//读取数据文件中的待办任务。
             reader.Close();
             reader.Dispose();
-            if (TodoList[0,0] != "1.0.0.0" && TodoList[0, 0] != "1.0.1.1")
+            if (TodoList[0,0] != "1.0.0.0" && TodoList[0, 0] != "1.0.1.1" && TodoList[0, 0] != "1.1.1.1")
             {
-                MessageBox.Show("无法格式化数据文件，因为数据文件版本与程序版本不一致。\n\n请备份并删除原文件后再使用本软件。如其中有重要内容，请联系作者尝试恢复。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("无法识别数据文件，因为数据文件版本不在该版本程序支持范围内。\n\n请备份并删除原文件后再使用本软件。如其中有重要内容，请联系作者尝试恢复。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.NotifyIcon.Dispose();
                 Application.Exit();
                 Environment.Exit(0);
@@ -204,7 +204,42 @@ namespace To_do_List
                 {
                     Richtextbox1.Text = "*********************\n>>>>>错误<<<<<\n读取帮助文件失败，可能正在生成帮助文件，请在 30 秒或更长时间后重试，此期间请勿关闭软件。\n*********************";
                 }
-            }
+            }//打开帮助内容。
+            else if(TextBox_todo_title.Text == "To-do_List.AutoRun=True" || TextBox_todo_title.Text == "To-do_List.AutoRun=False")
+            {
+                if(TextBox_todo_title.Text == "To-do_List.AutoRun=True")
+                {
+                    MessageBox.Show("由于涉及到修改注册表，此举可能会被某些安全软件拦截，请选择允许。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        RegistryKey Reg;
+                        Reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                        Reg.SetValue("To-do_List", Application.ExecutablePath);
+                        Reg.Close();
+                        Richtextbox1.Text = "设置开机自动启动成功！";
+                    }
+                    catch
+                    {
+                        Richtextbox1.Text = "设置开机自动启动失败！";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("由于涉及到修改注册表，此举可能会被某些安全软件拦截，请选择允许。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        RegistryKey Reg;
+                        Reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                        Reg.DeleteValue("To-do_List", false);
+                        Reg.Close();
+                        Richtextbox1.Text = "取消开机自动启动成功！";
+                    }
+                    catch
+                    {
+                        Richtextbox1.Text = "取消开机自动启动失败！";
+                    }
+                }
+            }//打开或关闭开机自动启动。
             else
             {
                 try
@@ -266,7 +301,7 @@ namespace To_do_List
                 Alarm = new FiltrateSortAndAlarm();
                 Alarm.Filtrate(TodoList);
                 Ready = true;
-            }
+            }//添加待办。
         }
         private Boolean AskExitSoftware()
         {

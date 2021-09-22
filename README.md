@@ -1,9 +1,18 @@
 # 待办清单（To-do_List）
 
-![image](https://user-images.githubusercontent.com/38943319/133883237-ac65a017-80ea-4b80-ab53-1e963d0a783f.png)
+![image](https://user-images.githubusercontent.com/38943319/134269308-a7f245b6-3d91-4af3-bfb1-a09e874ed400.png)
+
+
+2021-09-22 待办清单 版本号：1.0.1.1 下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.0.1.1
+
+	1、修复：在完成已到期事项而仍有未到期事项的情况下提醒不会停止的问题；
+	2、新增：在没有待办事项的情况下启动软件会在详情框提示打开“关于”对话框。
+
 
 
 2021-09-18 待办清单 版本号：1.0.0.0 下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.0.0.0
+
+	1、发布首个版本。
 
 
 

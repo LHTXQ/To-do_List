@@ -18,6 +18,7 @@ namespace To_do_List
         int TodoCount = 0;//统计未完成项数。
         string[,] TodoList = new string[300005,5];//读取数据文件（To-do_List_Data.to-do_list_data）内容并将其写入该数组。如果TodoList[n,0]为Deleted，则表示该项已被删除，可重用。
         int TodoID;//待办项唯一编号，从文件中读取赋值。只加不减。
+        FiltrateSortAndAlarm Alarm;
         Boolean Ready = false;//程序操作DataGridView完成状态标识。
 
 
@@ -37,7 +38,7 @@ namespace To_do_List
                     //File.Create(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data").Write(info,0,info.Length);
                     //换了个写入的实现方法。
                     StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
-                    write.WriteLine("1.0.0.0\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\n---------------------------------------------------------------");
+                    write.WriteLine("1.0.1.1\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\n---------------------------------------------------------------");
                     write.Close();
                 }
                 catch
@@ -91,7 +92,7 @@ namespace To_do_List
             } while (!reader.EndOfStream);//读取数据文件中的待办任务。
             reader.Close();
             reader.Dispose();
-            if (TodoList[0,0] != "1.0.0.0")
+            if (TodoList[0,0] != "1.0.0.0" && TodoList[0, 0] != "1.0.1.1")
             {
                 MessageBox.Show("无法格式化数据文件，因为数据文件版本与程序版本不一致。\n\n请备份并删除原文件后再使用本软件。如其中有重要内容，请联系作者尝试恢复。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.NotifyIcon.Dispose();
@@ -144,6 +145,7 @@ namespace To_do_List
                 Richtextbox1.BackColor = SystemColors.Window;
                 Richtextbox1.ReadOnly = false;
                 button_addtodo.Enabled = true;
+                Richtextbox1.Text = "：)  欢迎使用待办清单！\n\n在窗口空白位置或状态栏图标处点击鼠标右键进入“关于”以查看更多信息。";
             }
             if(TodoList[1,2] == "False")
             {
@@ -205,6 +207,14 @@ namespace To_do_List
             }
             else
             {
+                try
+                {
+                    Alarm.Stop();
+                }
+                catch (NullReferenceException)
+                {
+
+                }
                 Ready = false;
                 TodoID++;
                 LineCount++;
@@ -253,7 +263,7 @@ namespace To_do_List
                     button_addtodo.Visible = false;
                 }
                 DataGridView1.Focus();
-                FiltrateSortAndAlarm Alarm = new FiltrateSortAndAlarm();
+                Alarm = new FiltrateSortAndAlarm();
                 Alarm.Filtrate(TodoList);
                 Ready = true;
             }
@@ -483,7 +493,7 @@ namespace To_do_List
         }
 
         //
-        internal static Boolean NotifyIconFlicker_Status = false;//托盘图标闪烁状态。
+        internal static Boolean Notify_Status = false;//托盘图标闪烁状态。
         private uint NotifyIcon_Switch = 0;//托盘图标闪烁实现所需参数。
         private void Timer_flickernotifyicon_Tick(object sender, EventArgs e)//托盘图标闪烁实现。
         {
@@ -517,6 +527,14 @@ namespace To_do_List
             DialogResult ask = MessageBox.Show("此操作不可恢复，确认删除该待办？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (ask == DialogResult.OK)
             {
+                try
+                {
+                    Alarm.Stop();
+                }
+                catch (NullReferenceException)
+                {
+
+                }
                 Ready = false;
                 try
                 {
@@ -589,7 +607,7 @@ namespace To_do_List
                     }
                 }
                 this.Label_Statistics.Text = "（总计 " + (LineCount - 5).ToString() + " 项，还有 " + TodoCount.ToString() + " 项待办）";
-                FiltrateSortAndAlarm Alarm = new FiltrateSortAndAlarm();
+                Alarm = new FiltrateSortAndAlarm();
                 Alarm.Filtrate(TodoList);
                 Ready = true;
             }
@@ -599,6 +617,14 @@ namespace To_do_List
         {
             if(Ready==true && e.ColumnIndex==1)
             {
+                try
+                {
+                    Alarm.Stop();
+                }
+                catch (NullReferenceException)
+                {
+
+                }
                 if (this.DataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() == "True")
                 {
                     this.DataGridView1.Rows[e.RowIndex].Cells[4].Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
@@ -633,7 +659,7 @@ namespace To_do_List
                     MessageBox.Show("在更新待办数据文件时遇到错误，无法保存数据！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 this.Label_Statistics.Text = "（总计 " + (LineCount-5).ToString() + " 项，还有 " + TodoCount.ToString() + " 项待办）";
-                FiltrateSortAndAlarm Alarm = new FiltrateSortAndAlarm();
+                Alarm = new FiltrateSortAndAlarm();
                 Alarm.Filtrate(TodoList);
             }
         }
@@ -751,7 +777,7 @@ namespace To_do_List
         private void AlarmDetectTimer_Tick(object sender, EventArgs e)
         {
             NowTime.Text = "（当前时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "）";
-            if (NotifyIconFlicker_Status == true && Timer_FlickerNotifyIcon.Enabled == false)
+            if (Notify_Status == true && Timer_FlickerNotifyIcon.Enabled == false)
             {
                 Timer_FlickerNotifyIcon.Enabled = true;
                 Timer_SoundAlarm.Enabled = true;
@@ -761,7 +787,7 @@ namespace To_do_List
                 this.DataGridView1.Sort(this.DataGridView1.Columns[1], ListSortDirection.Ascending);
                 this.DataGridView1.Rows[0].Selected = true;
             }
-            else if(NotifyIconFlicker_Status == false && Timer_FlickerNotifyIcon.Enabled == true)
+            else if(Notify_Status == false && Timer_FlickerNotifyIcon.Enabled == true)
             {
                 Timer_FlickerNotifyIcon.Stop();
                 Timer_SoundAlarm.Stop();
@@ -848,6 +874,7 @@ namespace To_do_List
 public class FiltrateSortAndAlarm
 {
     public string AlarmTime;
+
     internal void Filtrate(string[,] OriginalArr)
     {
         int UnfinishedNum = 0;
@@ -875,11 +902,14 @@ public class FiltrateSortAndAlarm
     System.Timers.Timer AlarmTimer;
     private void Alarm()
     {
-        AlarmTimer = new System.Timers.Timer();
-        AlarmTimer.Interval = 1000;
-        AlarmTimer.Elapsed += new System.Timers.ElapsedEventHandler(AlarmTimer_Tick);
-        AlarmTimer.AutoReset = true;
-        AlarmTimer.Enabled = true;
+        if(AlarmTimer == null)
+        {
+            AlarmTimer = new System.Timers.Timer();
+            AlarmTimer.Interval = 1000;
+            AlarmTimer.Elapsed += new System.Timers.ElapsedEventHandler(AlarmTimer_Tick);
+            AlarmTimer.AutoReset = true;
+            AlarmTimer.Enabled = true;
+        }
         AlarmTimer.Start();
     }
     private void AlarmTimer_Tick(object sender, EventArgs e)
@@ -887,18 +917,27 @@ public class FiltrateSortAndAlarm
         if (AlarmTime != null && string.Compare(AlarmTime, DateTime.Now.ToString("yyyy-MM-dd HH:mm")) <= 0)
         {
             AlarmTimer.Stop();
-            AlarmTimer.Dispose();
-            To_do_List.MainWindow.NotifyIconFlicker_Status = true;
+            //AlarmTimer.Dispose();
+            To_do_List.MainWindow.Notify_Status = true;
         }
         else if(AlarmTime != null && string.Compare(AlarmTime, DateTime.Now.ToString("yyyy-MM-dd HH:mm")) > 0)
         {
-
+            if(To_do_List.MainWindow.Notify_Status)
+            {
+                To_do_List.MainWindow.Notify_Status = false;
+            }
         }
         else
         {
             AlarmTimer.Stop();
-            AlarmTimer.Dispose();
-            To_do_List.MainWindow.NotifyIconFlicker_Status = false;
+            //AlarmTimer.Dispose();
+            To_do_List.MainWindow.Notify_Status = false;
         }
+    }
+
+    public void Stop()
+    {
+        AlarmTimer.Stop();
+        //AlarmTimer.Dispose();
     }
 }

@@ -76,11 +76,11 @@ namespace To_do_List
             Versionlabel.Enabled = false;
             Versionlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Versionlabel.Font = new System.Drawing.Font("宋体", 8F);
-            Versionlabel.Location = new System.Drawing.Point(164, 180);
+            Versionlabel.Location = new System.Drawing.Point(160, 180);
             Versionlabel.Name = "Versionlabel";
             Versionlabel.Size = new System.Drawing.Size(91, 11);
             Versionlabel.TabIndex = 5;
-            Versionlabel.Text = "版本号：1.0.0.0";
+            Versionlabel.Text = "版本号：1.0.1.1";
             Versionlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -89,7 +89,7 @@ namespace To_do_List
             label2.Enabled = false;
             label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             label2.Font = new System.Drawing.Font("宋体", 8F);
-            label2.Location = new System.Drawing.Point(130, 195);
+            label2.Location = new System.Drawing.Point(123, 195);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(166, 11);
             label2.TabIndex = 6;
@@ -100,12 +100,12 @@ namespace To_do_List
             // 
             richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            richTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             richTextBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            richTextBox1.Location = new System.Drawing.Point(40, 81);
+            richTextBox1.Location = new System.Drawing.Point(30, 81);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new System.Drawing.Size(351, 96);
+            richTextBox1.Size = new System.Drawing.Size(375, 96);
             richTextBox1.TabIndex = 7;
             richTextBox1.Text = resources.GetString("richTextBox1.Text");
             richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
@@ -116,7 +116,7 @@ namespace To_do_List
             this.aboutlabel.Enabled = false;
             this.aboutlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutlabel.Font = new System.Drawing.Font("宋体", 9F);
-            this.aboutlabel.Location = new System.Drawing.Point(118, 211);
+            this.aboutlabel.Location = new System.Drawing.Point(121, 211);
             this.aboutlabel.Name = "aboutlabel";
             this.aboutlabel.Size = new System.Drawing.Size(173, 12);
             this.aboutlabel.TabIndex = 1;

@@ -132,7 +132,7 @@
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>项目地址：https://github.com/LHTXQ/To-do_List
 
-待办标题框同时也是命令框，输入可用命令（示例命令：To-do_List.Help）后点击“添加待办”按钮执行。可用命令有：
+待办标题框同时也是命令框，输入可用命令（示例命令：Help）后点击“添加待办”按钮执行。可用命令有：
 1、获取帮助内容：Help；
 2、设置开机自动启动：AutoRun=True；
 3、取消开机自动启动：AutoRun=False；

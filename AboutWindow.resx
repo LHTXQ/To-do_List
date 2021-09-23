@@ -123,9 +123,6 @@
   <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="Versionlabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
@@ -136,9 +133,11 @@
     <value>项目地址：https://github.com/LHTXQ/To-do_List
 
 待办标题框同时也是命令框，输入可用命令（示例命令：To-do_List.Help）后点击“添加待办”按钮执行。可用命令有：
-1、获取帮助内容：To-do_List.Help；
-2、设置开机自动启动：To-do_List.AutoRun=True；
-3、取消开机自动启动：To-do_List.AutoRun=False。
+1、获取帮助内容：Help；
+2、设置开机自动启动：AutoRun=True；
+3、取消开机自动启动：AutoRun=False；
+4、设置背景图像：SetBackgroundImage=xxx（首次设置请输入SetBackgroundImage=Null命令查看设置方法）；
+5、清除背景图像：SetBackgroundImage=Null。
 
 尽管尽可能考虑了所有可能出现的程序异常，但并不能保证程序能够完全按预期运行，可能出现的异常有：无法添加待办、无法查看已添加的待办、待办到期后无提醒、程序不响应以及异常占用系统资源等等。
 作者不对因使用本软件造成的任何损失负责。

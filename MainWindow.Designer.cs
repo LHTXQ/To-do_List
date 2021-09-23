@@ -35,13 +35,13 @@ namespace To_do_List
             System.Windows.Forms.Label label_finaltimelabel;
             System.Windows.Forms.Label label_todotitlelabel;
             System.Windows.Forms.GroupBox GroupBox2;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CheckBox_NotifyIcon = new System.Windows.Forms.CheckBox();
             this.CheckBox_Sound = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -100,6 +100,7 @@ namespace To_do_List
             // label1
             // 
             resources.ApplyResources(label1, "label1");
+            label1.BackColor = System.Drawing.Color.Transparent;
             label1.CausesValidation = false;
             label1.Name = "label1";
             // 
@@ -118,6 +119,7 @@ namespace To_do_List
             // GroupBox2
             // 
             resources.ApplyResources(GroupBox2, "GroupBox2");
+            GroupBox2.BackColor = System.Drawing.Color.Transparent;
             GroupBox2.Controls.Add(this.CheckBox_NotifyIcon);
             GroupBox2.Controls.Add(this.CheckBox_Sound);
             GroupBox2.Name = "GroupBox2";
@@ -144,6 +146,7 @@ namespace To_do_List
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.CausesValidation = false;
             this.label2.Name = "label2";
             // 
@@ -260,8 +263,9 @@ namespace To_do_List
             // button_importfile
             // 
             resources.ApplyResources(this.button_importfile, "button_importfile");
+            this.button_importfile.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button_importfile.Name = "button_importfile";
-            this.button_importfile.UseVisualStyleBackColor = true;
+            this.button_importfile.UseVisualStyleBackColor = false;
             this.button_importfile.Click += new System.EventHandler(this.Button_importfile_Click);
             // 
             // OpenFileDialog1
@@ -296,6 +300,7 @@ namespace To_do_List
             // GroupBox1
             // 
             resources.ApplyResources(this.GroupBox1, "GroupBox1");
+            this.GroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.GroupBox1.Controls.Add(label_todotitlelabel);
             this.GroupBox1.Controls.Add(label_finaltimelabel);
             this.GroupBox1.Controls.Add(this.TextBox_todo_title);
@@ -331,14 +336,14 @@ namespace To_do_List
             this.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SerialNumber,
@@ -346,25 +351,25 @@ namespace To_do_List
             this.Deadline,
             this.TodoTitle,
             this.FinishTime});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle13;
             resources.ApplyResources(this.DataGridView1, "DataGridView1");
             this.DataGridView1.MultiSelect = false;
             this.DataGridView1.Name = "DataGridView1";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.DataGridView1.RowHeadersVisible = false;
             this.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -378,8 +383,8 @@ namespace To_do_List
             // SerialNumber
             // 
             this.SerialNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.SerialNumber.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.SerialNumber.DefaultCellStyle = dataGridViewCellStyle9;
             resources.ApplyResources(this.SerialNumber, "SerialNumber");
             this.SerialNumber.Name = "SerialNumber";
             this.SerialNumber.ReadOnly = true;
@@ -396,8 +401,8 @@ namespace To_do_List
             // Deadline
             // 
             this.Deadline.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Deadline.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Deadline.DefaultCellStyle = dataGridViewCellStyle10;
             resources.ApplyResources(this.Deadline, "Deadline");
             this.Deadline.Name = "Deadline";
             this.Deadline.ReadOnly = true;
@@ -406,8 +411,8 @@ namespace To_do_List
             // TodoTitle
             // 
             this.TodoTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TodoTitle.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TodoTitle.DefaultCellStyle = dataGridViewCellStyle11;
             resources.ApplyResources(this.TodoTitle, "TodoTitle");
             this.TodoTitle.Name = "TodoTitle";
             this.TodoTitle.ReadOnly = true;
@@ -416,8 +421,8 @@ namespace To_do_List
             // FinishTime
             // 
             this.FinishTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FinishTime.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FinishTime.DefaultCellStyle = dataGridViewCellStyle12;
             resources.ApplyResources(this.FinishTime, "FinishTime");
             this.FinishTime.Name = "FinishTime";
             this.FinishTime.ReadOnly = true;
@@ -426,6 +431,7 @@ namespace To_do_List
             // Label_Statistics
             // 
             resources.ApplyResources(this.Label_Statistics, "Label_Statistics");
+            this.Label_Statistics.BackColor = System.Drawing.Color.Transparent;
             this.Label_Statistics.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Label_Statistics.Name = "Label_Statistics";
             this.Label_Statistics.UseMnemonic = false;
@@ -473,7 +479,8 @@ namespace To_do_List
             // NowTime
             // 
             resources.ApplyResources(this.NowTime, "NowTime");
-            this.NowTime.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.NowTime.BackColor = System.Drawing.Color.Transparent;
+            this.NowTime.ForeColor = System.Drawing.SystemColors.Highlight;
             this.NowTime.Name = "NowTime";
             this.NowTime.UseMnemonic = false;
             // 

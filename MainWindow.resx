@@ -120,6 +120,9 @@
   <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
+  <metadata name="label1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -249,6 +252,54 @@
   <data name="GroupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
+  <data name="&gt;&gt;CheckBox_NotifyIcon.Name" xml:space="preserve">
+    <value>CheckBox_NotifyIcon</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_NotifyIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_NotifyIcon.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_NotifyIcon.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_Sound.Name" xml:space="preserve">
+    <value>CheckBox_Sound</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_Sound.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_Sound.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_Sound.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 262</value>
+  </data>
+  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 59</value>
+  </data>
+  <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>提醒设置</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Name" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="CheckBox_NotifyIcon.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -306,30 +357,6 @@
   <data name="&gt;&gt;CheckBox_Sound.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 262</value>
-  </data>
-  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 59</value>
-  </data>
-  <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="GroupBox2.Text" xml:space="preserve">
-    <value>提醒设置</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Name" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <metadata name="label2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -372,42 +399,6 @@
   <metadata name="ContextMenuStrip_richtextbox.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>350, 17</value>
   </metadata>
-  <data name="粘贴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
-  <data name="粘贴ToolStripMenuItem.Text" xml:space="preserve">
-    <value>粘贴</value>
-  </data>
-  <data name="复制ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
-  <data name="复制ToolStripMenuItem.Text" xml:space="preserve">
-    <value>复制</value>
-  </data>
-  <data name="剪切ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
-  <data name="剪切ToolStripMenuItem.Text" xml:space="preserve">
-    <value>剪切</value>
-  </data>
-  <data name="全选ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
-  <data name="全选ToolStripMenuItem.Text" xml:space="preserve">
-    <value>全选</value>
-  </data>
-  <data name="撤消ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
-  <data name="撤消ToolStripMenuItem.Text" xml:space="preserve">
-    <value>撤消</value>
-  </data>
-  <data name="删除ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
-  <data name="删除ToolStripMenuItem.Text" xml:space="preserve">
-    <value>删除</value>
-  </data>
   <data name="ContextMenuStrip_richtextbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 136</value>
   </data>
@@ -443,6 +434,42 @@
   </data>
   <data name="&gt;&gt;Richtextbox1.ZOrder" xml:space="preserve">
     <value>13</value>
+  </data>
+  <data name="粘贴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="粘贴ToolStripMenuItem.Text" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="复制ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="复制ToolStripMenuItem.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="剪切ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="剪切ToolStripMenuItem.Text" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="全选ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="全选ToolStripMenuItem.Text" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="撤消ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="撤消ToolStripMenuItem.Text" xml:space="preserve">
+    <value>撤消</value>
+  </data>
+  <data name="删除ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="删除ToolStripMenuItem.Text" xml:space="preserve">
+    <value>删除</value>
   </data>
   <data name="button_addtodo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -489,24 +516,6 @@
   <metadata name="ContextMenuStrip_notifyicon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>128, 17</value>
   </metadata>
-  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
-    <value>关于</value>
-  </data>
-  <data name="捐赠ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="捐赠ToolStripMenuItem.Text" xml:space="preserve">
-    <value>捐赠</value>
-  </data>
-  <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
-    <value>退出</value>
-  </data>
   <data name="ContextMenuStrip_notifyicon.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 70</value>
   </data>
@@ -5033,6 +5042,24 @@
   <data name="NotifyIcon.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="捐赠ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="捐赠ToolStripMenuItem.Text" xml:space="preserve">
+    <value>捐赠</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
   <data name="button_importfile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
@@ -5180,12 +5207,6 @@
   <metadata name="ContextMenuStrip_DataGridView1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 55</value>
   </metadata>
-  <data name="删除待办ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 22</value>
-  </data>
-  <data name="删除待办ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>删除待办</value>
-  </data>
   <data name="ContextMenuStrip_DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 26</value>
   </data>
@@ -5194,6 +5215,12 @@
   </data>
   <data name="&gt;&gt;ContextMenuStrip_DataGridView1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="删除待办ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 22</value>
+  </data>
+  <data name="删除待办ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>删除待办</value>
   </data>
   <metadata name="SerialNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -5351,18 +5378,6 @@
   <metadata name="contextMenuStrip_MainWindow.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>532, 55</value>
   </metadata>
-  <data name="关于ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="关于ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>关于</value>
-  </data>
-  <data name="捐赠toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="捐赠toolStripMenuItem1.Text" xml:space="preserve">
-    <value>捐赠</value>
-  </data>
   <data name="contextMenuStrip_MainWindow.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 48</value>
   </data>
@@ -5372,6 +5387,9 @@
   <data name="&gt;&gt;contextMenuStrip_MainWindow.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <metadata name="NowTime.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="NowTime.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -23594,6 +23612,18 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="关于ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="关于ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="捐赠toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="捐赠toolStripMenuItem1.Text" xml:space="preserve">
+    <value>捐赠</value>
   </data>
   <metadata name="Timer_AlarmDetect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>774, 55</value>

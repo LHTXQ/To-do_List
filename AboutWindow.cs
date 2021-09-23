@@ -13,6 +13,7 @@ namespace To_do_List
         public aboutwindow()
         {
             InitializeComponent();
+            Versionlabel.Text= "版本号：" + To_do_List.MainWindow.Version;
             int now = 2021;
             if(DateTime.Now.Year > now)
             {

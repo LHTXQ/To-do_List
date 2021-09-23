@@ -31,15 +31,14 @@ namespace To_do_List
         {
             System.Windows.Forms.PictureBox pictureBox1;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label Versionlabel;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.RichTextBox richTextBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(aboutwindow));
+            this.Versionlabel = new System.Windows.Forms.Label();
             this.aboutlabel = new System.Windows.Forms.Label();
             this.aboutwindows_button = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
-            Versionlabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
@@ -54,7 +53,7 @@ namespace To_do_List
             pictureBox1.ErrorImage = global::To_do_List.Properties.Resources.todolist_png;
             pictureBox1.Image = global::To_do_List.Properties.Resources.todolist_png;
             pictureBox1.InitialImage = global::To_do_List.Properties.Resources.todolist_png;
-            pictureBox1.Location = new System.Drawing.Point(179, 3);
+            pictureBox1.Location = new System.Drawing.Point(270, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(60, 60);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -63,25 +62,12 @@ namespace To_do_List
             // 
             // label1
             // 
-            label1.Location = new System.Drawing.Point(179, 66);
+            label1.Location = new System.Drawing.Point(270, 66);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(60, 12);
             label1.TabIndex = 4;
             label1.Text = "待办清单";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Versionlabel
-            // 
-            Versionlabel.AutoSize = true;
-            Versionlabel.Enabled = false;
-            Versionlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Versionlabel.Font = new System.Drawing.Font("宋体", 8F);
-            Versionlabel.Location = new System.Drawing.Point(160, 180);
-            Versionlabel.Name = "Versionlabel";
-            Versionlabel.Size = new System.Drawing.Size(91, 11);
-            Versionlabel.TabIndex = 5;
-            Versionlabel.Text = "版本号：1.1.1.1";
-            Versionlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -89,7 +75,7 @@ namespace To_do_List
             label2.Enabled = false;
             label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             label2.Font = new System.Drawing.Font("宋体", 8F);
-            label2.Location = new System.Drawing.Point(123, 195);
+            label2.Location = new System.Drawing.Point(216, 290);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(166, 11);
             label2.TabIndex = 6;
@@ -105,10 +91,23 @@ namespace To_do_List
             richTextBox1.Location = new System.Drawing.Point(30, 81);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new System.Drawing.Size(375, 96);
+            richTextBox1.Size = new System.Drawing.Size(530, 185);
             richTextBox1.TabIndex = 7;
             richTextBox1.Text = resources.GetString("richTextBox1.Text");
             richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
+            // 
+            // Versionlabel
+            // 
+            this.Versionlabel.AutoSize = true;
+            this.Versionlabel.Enabled = false;
+            this.Versionlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Versionlabel.Font = new System.Drawing.Font("宋体", 8F);
+            this.Versionlabel.Location = new System.Drawing.Point(255, 275);
+            this.Versionlabel.Name = "Versionlabel";
+            this.Versionlabel.Size = new System.Drawing.Size(91, 11);
+            this.Versionlabel.TabIndex = 5;
+            this.Versionlabel.Text = "版本号：x.x.x.x";
+            this.Versionlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // aboutlabel
             // 
@@ -116,7 +115,7 @@ namespace To_do_List
             this.aboutlabel.Enabled = false;
             this.aboutlabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutlabel.Font = new System.Drawing.Font("宋体", 9F);
-            this.aboutlabel.Location = new System.Drawing.Point(121, 211);
+            this.aboutlabel.Location = new System.Drawing.Point(214, 305);
             this.aboutlabel.Name = "aboutlabel";
             this.aboutlabel.Size = new System.Drawing.Size(173, 12);
             this.aboutlabel.TabIndex = 1;
@@ -126,7 +125,7 @@ namespace To_do_List
             // aboutwindows_button
             // 
             this.aboutwindows_button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.aboutwindows_button.Location = new System.Drawing.Point(179, 230);
+            this.aboutwindows_button.Location = new System.Drawing.Point(270, 330);
             this.aboutwindows_button.Name = "aboutwindows_button";
             this.aboutwindows_button.Size = new System.Drawing.Size(60, 23);
             this.aboutwindows_button.TabIndex = 2;
@@ -140,10 +139,10 @@ namespace To_do_List
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.aboutwindows_button;
-            this.ClientSize = new System.Drawing.Size(434, 261);
+            this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(richTextBox1);
             this.Controls.Add(label2);
-            this.Controls.Add(Versionlabel);
+            this.Controls.Add(this.Versionlabel);
             this.Controls.Add(label1);
             this.Controls.Add(pictureBox1);
             this.Controls.Add(this.aboutwindows_button);
@@ -152,7 +151,7 @@ namespace To_do_List
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(450, 300);
+            this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "aboutwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "关于";
@@ -166,5 +165,6 @@ namespace To_do_List
 
         private System.Windows.Forms.Button aboutwindows_button;
         private System.Windows.Forms.Label aboutlabel;
+        private System.Windows.Forms.Label Versionlabel;
     }
 }

@@ -1,7 +1,14 @@
 # 待办清单（To-do_List）
 
-![image](https://user-images.githubusercontent.com/38943319/134313975-91ac0526-d01c-404a-8ba6-373018fa82cb.png)
+![image](https://user-images.githubusercontent.com/38943319/134451887-7c9fa9da-0003-4b8a-b512-037cfb38891a.png)
 
+
+
+2021-09-23 待办清单 版本号：1.2.1.1 下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.2.1.1
+
+	1、新增：可设置背景图像。
+	
+	
 
 2021-09-22 待办清单 版本号：1.1.1.1 下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.1.1.1
 

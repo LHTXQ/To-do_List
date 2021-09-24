@@ -9,16 +9,18 @@ using System.IO;
 //using System.Text.RegularExpressions;
 using System.Media;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace To_do_List
 {
     public partial class MainWindow : Form
     {
-        internal static string Version = "1.2.1.1";//程序版本，更改后仍需修改MainWindow函数中的数据文件版本号判断。
+        internal static string Version = "1.3.2.2";//程序版本，更改后仍需修改MainWindow函数中的数据文件版本号判断。
         public static int LineCount = 0;//统计数据文件（To-do_List_Data.to-do_list_data）内容行数，从 1 起计。
         int TodoCount = 0;//统计未完成项数。
         string[,] TodoList = new string[300005,5];//读取数据文件（To-do_List_Data.to-do_list_data）内容并将其写入该数组。如果TodoList[n,0]为Deleted，则表示该项已被删除，可重用。
         int TodoID;//待办项唯一编号，从文件中读取赋值。只加不减。
+        string OriginalDateFileContent = Version + "\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\tNull\n---------------------------------------------------------------";
         FiltrateSortAndAlarm Alarm;
         Boolean Ready = false;//程序操作DataGridView完成状态标识。
 
@@ -31,7 +33,7 @@ namespace To_do_List
                 //在软件所在目录下创建To-do_List文件夹并写入To-do_List_Data.to-do_list_data的文本文件。
                 try
                 {
-                    if (Directory.Exists(@Application.StartupPath.ToString() + "\\To-do_List") == false)
+                    if (!Directory.Exists(@Application.StartupPath.ToString() + "\\To-do_List"))
                     {
                         Directory.CreateDirectory(@Application.StartupPath.ToString() + "\\To-do_List");
                     }
@@ -39,7 +41,7 @@ namespace To_do_List
                     //File.Create(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data").Write(info,0,info.Length);
                     //换了个写入的实现方法。
                     StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
-                    write.WriteLine(Version + "\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\tNull\n---------------------------------------------------------------");
+                    write.WriteLine(OriginalDateFileContent);
                     write.Close();
                 }
                 catch
@@ -93,13 +95,15 @@ namespace To_do_List
             } while (!reader.EndOfStream);//读取数据文件中的待办任务。
             reader.Close();
             reader.Dispose();
-            if (TodoList[0,0] != "1.0.0.0" && TodoList[0, 0] != "1.0.1.1" && TodoList[0, 0] != "1.1.1.1" && TodoList[0, 0] != "1.2.1.1")
+            //
+            //
+            if (TodoList[0,0] != "1.0.0.0" && TodoList[0, 0] != "1.0.1.1" && TodoList[0, 0] != "1.1.1.1" && TodoList[0, 0] != "1.2.1.1" && TodoList[0, 0] != "1.3.2.2")
             {
-                MessageBox.Show("无法识别数据文件，因为数据文件版本不在该版本程序支持范围内。\n\n请备份并删除原文件后再使用本软件。如其中有重要内容，请联系作者尝试恢复。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("无法识别数据文件，因为数据文件版本(" + TodoList[0, 0] + ")不在该版本程序(" + Version + ")支持范围内。\n\n请备份并删除原文件后再使用本软件。如其中有重要内容，请联系作者尝试恢复。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.NotifyIcon.Dispose();
                 Application.Exit();
                 Environment.Exit(0);
-            }
+            }//判断数据文件版本。
             //
             if (TodoList[3,1] != "Null")
             {
@@ -116,7 +120,7 @@ namespace To_do_List
                 }
                 else
                 {
-                    MessageBox.Show("未找到背景图像文件，请确保数据目录中存在名为 "+ TodoList[3, 1] + " 的文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("未找到背景图像文件，请确保数据目录（To-do_List）中存在名为 " + TodoList[3, 1] + " 的文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }//载入背景图像
             //
@@ -201,99 +205,76 @@ namespace To_do_List
 
         private void Addtodo_button_Click(object sender, EventArgs e)//添加待办按钮。
         {
-            if(TextBox_todo_title.Text== "Help")
+            if(TextBox_todo_title.Text.Split('.')[0]== "To-do_List")
             {
-                if(!File.Exists(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do"))
+                string Command = TextBox_todo_title.Text.Remove(0,11);
+                if(Command == "Help")
                 {
-                    try
+                    if (!File.Exists(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do"))
                     {
-                        //BinaryWriter writer = new BinaryWriter(File.Open(fileName, FileMode.Create))
-                        Byte[] Help = Properties.Resources.To_do_List_Help;
-                        File.Create(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do").Write(Help, 0, Help.Length);
-                        File.Create(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do").Dispose();
-                    }
-                    catch
-                    {
-                        Richtextbox1.Text = "*********************\n>>>>>错误<<<<<\n无法创建帮助文件，因此你无法查看帮助内容。\n*********************";
-                    }
-                }
-                try
-                {
-                    Richtextbox1.LoadFile(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do", RichTextBoxStreamType.RichText);
-                }
-                catch
-                {
-                    Richtextbox1.Text = "*********************\n>>>>>错误<<<<<\n读取帮助文件失败，可能正在生成帮助文件，请在 30 秒或更长时间后重试，此期间请勿关闭软件。\n*********************";
-                }
-            }//打开帮助内容。
-            else if(TextBox_todo_title.Text == "AutoRun=True" || TextBox_todo_title.Text == "AutoRun=False")
-            {
-                if(TextBox_todo_title.Text == "AutoRun=True")
-                {
-                    MessageBox.Show("由于涉及到修改注册表，此举可能会被某些安全软件拦截，请选择允许。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    try
-                    {
-                        RegistryKey Reg;
-                        Reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
-                        Reg.SetValue("To-do_List", Application.ExecutablePath);
-                        Reg.Close();
-                        Richtextbox1.Text = "设置开机自动启动成功！";
-                    }
-                    catch
-                    {
-                        Richtextbox1.Text = "设置开机自动启动失败！";
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("由于涉及到修改注册表，此举可能会被某些安全软件拦截，请选择允许。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    try
-                    {
-                        RegistryKey Reg;
-                        Reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
-                        Reg.DeleteValue("To-do_List", false);
-                        Reg.Close();
-                        Richtextbox1.Text = "取消开机自动启动成功！";
-                    }
-                    catch
-                    {
-                        Richtextbox1.Text = "取消开机自动启动失败！";
-                    }
-                }
-            }//打开或关闭开机自动启动。
-            else if(TextBox_todo_title.Text.Split('=')[0] == "SetBackgroundImage")
-            {
-                if(TextBox_todo_title.Text.Split('=')[1] == "Null")
-                {
-                    if(TodoList[3, 1] != "Null")
-                    {
-                        TodoList[3, 1] = "Null";
                         try
                         {
-                            StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
-                            for (int i = 0; i <= LineCount - 1; i++)
-                            {
-                                write.WriteLine(TodoList[i, 0] + "\t" + TodoList[i, 1] + "\t" + TodoList[i, 2] + "\t" + TodoList[i, 3] + "\t" + TodoList[i, 4]);
-                            }
-                            write.Close();
-                            write.Dispose();
+                            //BinaryWriter writer = new BinaryWriter(File.Open(fileName, FileMode.Create))
+                            Byte[] Help = Properties.Resources.To_do_List_Help;
+                            File.Create(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do").Write(Help, 0, Help.Length);
+                            File.Create(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do").Dispose();
                         }
                         catch
                         {
-                            MessageBox.Show("写入数据时遇到错误，请检查软件权限或数据文件有效性。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Richtextbox1.Text = "*********************\n>>>>>错误<<<<<\n无法创建帮助文件，因此你无法查看帮助内容。\n*********************";
                         }
                     }
-                    this.BackgroundImage = null;
-                    Richtextbox1.Text = "清除背景图像成功！\n\n如需设置背景图像，请在数据目录（To-do_List）中放入图像文件（支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png）并执行SetBackgroundImage=xxx命令，其中“xxx”为包含后缀的图像文件名。\n\n完整命令示例：\nSetBackgroundImage=BackgroundImage.jpg";
-                }
-                else
-                {
-                    string Suffix = TextBox_todo_title.Text.Split('=')[1].Split('.')[TextBox_todo_title.Text.Split('=')[1].Split('.').Length - 1];
-                    if(Suffix == "jpg" || Suffix == "jpeg" || Suffix == "gif" || Suffix == "bmp" || Suffix == "wmf" || Suffix == "png")
+                    try
                     {
-                        if (System.IO.File.Exists(@Application.StartupPath.ToString() + "\\To-do_List\\" + TextBox_todo_title.Text.Split('=')[1]))
+                        Richtextbox1.LoadFile(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List.Help.to-do", RichTextBoxStreamType.RichText);
+                    }
+                    catch
+                    {
+                        Richtextbox1.Text = "*********************\n>>>>>错误<<<<<\n读取帮助文件失败，可能正在生成帮助文件，请在 30 秒或更长时间后重试，此期间请勿关闭软件。\n*********************";
+                    }
+                }//打开帮助内容。
+                else if (Command == "AutoRun=True" || Command == "AutoRun=False")
+                {
+                    if (Command == "AutoRun=True")
+                    {
+                        MessageBox.Show("由于涉及到修改注册表，此举可能会被某些安全软件拦截，请选择允许。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
                         {
-                            TodoList[3, 1] = TextBox_todo_title.Text.Split('=')[1];
+                            RegistryKey Reg;
+                            Reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                            Reg.SetValue("To-do_List", Application.ExecutablePath);
+                            Reg.Close();
+                            Richtextbox1.Text = "设置开机自动启动成功！";
+                        }
+                        catch
+                        {
+                            Richtextbox1.Text = "设置开机自动启动失败！";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("由于涉及到修改注册表，此举可能会被某些安全软件拦截，请选择允许。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            RegistryKey Reg;
+                            Reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                            Reg.DeleteValue("To-do_List", false);
+                            Reg.Close();
+                            Richtextbox1.Text = "取消开机自动启动成功！";
+                        }
+                        catch
+                        {
+                            Richtextbox1.Text = "取消开机自动启动失败！";
+                        }
+                    }
+                }//打开或关闭开机自动启动。
+                else if (Command.Split('=')[0] == "SetBackgroundImage")
+                {
+                    if (Command.Split('=')[1] == "Null")
+                    {
+                        if (TodoList[3, 1] != "Null")
+                        {
+                            TodoList[3, 1] = "Null";
                             try
                             {
                                 StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
@@ -308,27 +289,87 @@ namespace To_do_List
                             {
                                 MessageBox.Show("写入数据时遇到错误，请检查软件权限或数据文件有效性。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                            try
+                        }
+                        this.BackgroundImage = null;
+                        Richtextbox1.Text = "清除背景图像成功！\n\n如需设置背景图像，请在数据目录（To-do_List）中放入图像文件（支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png）并执行To-do_List.SetBackgroundImage=xxx命令，其中“xxx”为包含后缀的图像文件名。\n\n完整命令示例：\nTo-do_List.SetBackgroundImage=BackgroundImage.jpg";
+                    }
+                    else
+                    {
+                        string Suffix = Command.Split('=')[1].Split('.')[Command.Split('=')[1].Split('.').Length - 1];
+                        if (Suffix == "jpg" || Suffix == "jpeg" || Suffix == "gif" || Suffix == "bmp" || Suffix == "wmf" || Suffix == "png")
+                        {
+                            if (System.IO.File.Exists(@Application.StartupPath.ToString() + "\\To-do_List\\" + Command.Split('=')[1]))
                             {
-                                this.BackgroundImage = Image.FromFile(@Application.StartupPath.ToString() + "\\To-do_List\\" + TextBox_todo_title.Text.Split('=')[1]);
-                                Richtextbox1.Text = "设置背景图像成功！\n\n如需更改背景图像，请在数据目录（To-do_List）中放入图像文件（支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png）并执行SetBackgroundImage=xxx命令或重新打开软件，其中“xxx”为包含后缀的图像文件名。\n\n完整命令示例：\nSetBackgroundImage=BackgroundImage.jpg";
+                                TodoList[3, 1] = Command.Split('=')[1];
+                                try
+                                {
+                                    StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
+                                    for (int i = 0; i <= LineCount - 1; i++)
+                                    {
+                                        write.WriteLine(TodoList[i, 0] + "\t" + TodoList[i, 1] + "\t" + TodoList[i, 2] + "\t" + TodoList[i, 3] + "\t" + TodoList[i, 4]);
+                                    }
+                                    write.Close();
+                                    write.Dispose();
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("写入数据时遇到错误，请检查软件权限或数据文件有效性。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                try
+                                {
+                                    this.BackgroundImage = Image.FromFile(@Application.StartupPath.ToString() + "\\To-do_List\\" + Command.Split('=')[1]);
+                                    Richtextbox1.Text = "设置背景图像成功！\n\n如需更改背景图像，请在数据目录（To-do_List）中放入图像文件（支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png）并执行To-do_List.SetBackgroundImage=xxx命令或重新打开软件，其中“xxx”为包含后缀的图像文件名。\n\n完整命令示例：\nTo-do_List.SetBackgroundImage=BackgroundImage.jpg";
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("载入背景图像失败，请检查文件流格式是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
-                            catch
+                            else
                             {
-                                MessageBox.Show("载入背景图像失败，请检查文件流格式是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("未找到背景图像文件，请确保数据目录（To-do_List）中存在名为 " + Command.Split('=')[1] + " 的文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("未找到背景图像文件，请确保数据目录（To-do_List）中存在名为 " + TextBox_todo_title.Text.Split('=')[1] + " 的文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("不支持指定的文件，请输入正确指定背景图像文件的命令！\n\n完整命令示例：\nTo-do_List.SetBackgroundImage=BackgroundImage.jpg\n\n仅支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png格式的图像文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
+                }//设置背景图像
+                else if(Command == "ResetDataFile")
+                {
+                    DialogResult ask = MessageBox.Show("此操作将会清空所有待办项并重新生成数据文件（不会删除待办详情文件，但在添加新待办项时会覆盖原文件），重置后本软件将会自动重启，是否继续？", "注意：重置数据文件", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (ask == DialogResult.OK)
                     {
-                        MessageBox.Show("请输入正确指定背景图像文件的命令！\n\n完整命令示例：\nSetBackgroundImage=BackgroundImage.jpg\n\n仅支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png格式的图像文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //在软件所在目录下创建To-do_List文件夹并写入To-do_List_Data.to-do_list_data的文本文件。
+                        try
+                        {
+                            if (!Directory.Exists(@Application.StartupPath.ToString() + "\\To-do_List"))
+                            {
+                                Directory.CreateDirectory(@Application.StartupPath.ToString() + "\\To-do_List");
+                            }
+                            StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
+                            write.WriteLine(OriginalDateFileContent);
+                            write.Close();
+                            MessageBox.Show("重置数据文件完成！\n\n点击确定以重启软件。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //开启新的实例
+                            Process.Start(Application.ExecutablePath);
+                            //关闭当前实例
+                            this.NotifyIcon.Dispose();
+                            Process.GetCurrentProcess().Kill();
+                            //Application.Restart();//此方法会有询问是否退出的对话框。
+                        }
+                        catch
+                        {
+                            MessageBox.Show("在写入数据文件时遇到错误，请检查软件权限。\n\n请在排除权限问题后再使用本软件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                }
-            }//设置背景图像
+                }//重置数据文件。
+                else
+                {
+                    Richtextbox1.Text = "不存在“To-do_List." + Command + "”命令，请检查是否输入错误。你可在“关于”界面查看可用命令。\n\n如无意输入命令而欲添加待办，请勿在待办标题框中输入以“To-do_List.”开头的内容。";
+                }//输入不存在的命令提示。
+            }//执行输入的命令。
             else
             {
                 try
@@ -394,7 +435,7 @@ namespace To_do_List
         }
         private Boolean AskExitSoftware()
         {
-            if(Richtextbox1.BackColor == SystemColors.Window && Richtextbox1.TextLength != 0)
+            /*if(Richtextbox1.BackColor == SystemColors.Window && Richtextbox1.TextLength != 0)
             {
                 DialogResult ask = MessageBox.Show("详情框中有已编辑但未保存的内容，是否不保存并退出？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (ask == DialogResult.OK)
@@ -409,18 +450,57 @@ namespace To_do_List
             else
             {
                 return true;
-            }
-            /*
-            DialogResult ask = MessageBox.Show("将自动保存所有更改，确定退出？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (ask==DialogResult.OK)
+            }*/
+            //
+            if(TodoCount != 0 && (Richtextbox1.BackColor == SystemColors.Window && Richtextbox1.TextLength != 0))
             {
-                return true;
+                DialogResult ask = MessageBox.Show("你还有 " + TodoCount + " 项待办未完成且详情框中有已编辑但未保存的内容，确定无需继续提醒且不保存详情框中内容并关闭本软件？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (ask == DialogResult.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if(TodoCount != 0 && !(Richtextbox1.BackColor == SystemColors.Window && Richtextbox1.TextLength != 0))
+            {
+                DialogResult ask = MessageBox.Show("你还有 " + TodoCount + " 项待办未完成，关闭后将无法继续提醒，确定关闭本软件？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (ask == DialogResult.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if(TodoCount == 0 && (Richtextbox1.BackColor == SystemColors.Window && Richtextbox1.TextLength != 0))
+            {
+                DialogResult ask = MessageBox.Show("详情框中有已编辑但未保存的内容，是否不保存并关闭本软件？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (ask == DialogResult.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                DialogResult ask = MessageBox.Show("确定关闭本软件？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (ask == DialogResult.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            *///暂取消退出时的二次确认。
+
 
             //return true;
         }
@@ -643,6 +723,10 @@ namespace To_do_List
                         break;
                 }
             }
+            else if(CheckBox_NotifyIcon.Checked == false && this.NotifyIcon.Icon != Properties.Resources.todolist_ico)
+            {
+                this.NotifyIcon.Icon = Properties.Resources.todolist_ico;
+            }
         }
         //
 
@@ -820,6 +904,7 @@ namespace To_do_List
             }
             Richtextbox1.BackColor = SystemColors.Window;
             button_addtodo.Enabled = true;
+            Richtextbox1.ReadOnly = false;
         }
 
         private void 关于ToolStripMenuItem1_Click(object sender, EventArgs e)

@@ -1,6 +1,15 @@
 # 待办清单（To-do_List）
 
-![image](https://user-images.githubusercontent.com/38943319/134452016-8a999665-c2a6-45f5-9824-2603392c0380.png)
+
+![image](https://user-images.githubusercontent.com/38943319/134613400-51b5c8a8-0d0a-40f6-b0cd-a1e235ee74b4.png)
+
+
+
+2021-09-24 待办清单 版本号：1.3.2.2  下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.3.2.2
+
+	1、新增：重置数据文件命令；
+	2、更改：命令的格式改回以“To-do_List.”开头；
+	3、修复：关闭图标闪烁提醒时图标可能不会还原的问题。
 
 
 

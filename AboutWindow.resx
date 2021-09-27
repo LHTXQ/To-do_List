@@ -138,7 +138,8 @@
 3、取消开机自动启动：To-do_List.AutoRun=False；
 4、设置背景图像：To-do_List.SetBackgroundImage=xxx（首次设置请输入To-do_List.SetBackgroundImage=Null命令查看设置方法）；
 5、清除背景图像：To-do_List.SetBackgroundImage=Null；
-6、重置数据文件：To-do_List.ResetDataFile（慎用！通常在数据文件版本和软件版本不一致时需使用，建议仅在软件不正常工作或无法忍受打开软件时总有不明不白的提示时使用）。
+6、设置窗口背景颜色为指定RGB颜色：To-do_List.SetBackColor=x,x,x（其中x为属于[0, 255]的数字。如需还原为默认颜色，请输入To-do_List.SetBackColor=Default）；
+7、重置数据文件：To-do_List.ResetDataFile（慎用！通常在数据文件版本和软件版本不一致时需使用，建议仅在软件不正常工作或无法忍受打开软件时总有不明不白的提示时使用）。
 
 尽管尽可能考虑了所有可能出现的程序异常，但并不能保证程序能够完全按预期运行，可能出现的异常有：无法添加待办、无法查看已添加的待办、待办到期后无提醒、程序不响应以及异常占用系统资源等等。
 作者不对因使用本软件造成的任何损失负责。

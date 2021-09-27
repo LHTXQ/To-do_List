@@ -147,14 +147,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\todolist.ico" />
-    <None Include="Resources\yellow.ico" />
-    <None Include="Resources\todolist.png" />
-    <None Include="Resources\orange.ico" />
+    <Content Include="Resources\todolist.ico" />
+    <Content Include="Resources\yellow.ico" />
+    <Content Include="Resources\todolist.png" />
+    <Content Include="Resources\orange.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\To-do_List\Notify.wav" />
     <EmbeddedResource Include="Resources\Notify.wav" />
+    <Content Include="Resources\Close.png" />
+    <Content Include="Resources\Maximize.png" />
+    <Content Include="Resources\Minimize.png" />
+    <Content Include="Resources\FormBorder.png" />
     <Content Include="todolist.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -120,13 +120,6 @@
   <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="label1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 10.5pt</value>
@@ -136,7 +129,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 15</value>
+    <value>0, 5</value>
   </data>
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -144,6 +137,7 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 14</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -157,10 +151,10 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>1</value>
   </data>
   <metadata name="label_finaltimelabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -178,7 +172,7 @@
     <value>NoControl</value>
   </data>
   <data name="label_finaltimelabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 30</value>
+    <value>15, 30</value>
   </data>
   <data name="label_finaltimelabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -220,7 +214,7 @@
     <value>NoControl</value>
   </data>
   <data name="label_todotitlelabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 30</value>
+    <value>225, 30</value>
   </data>
   <data name="label_todotitlelabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -252,53 +246,8 @@
   <data name="GroupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;CheckBox_NotifyIcon.Name" xml:space="preserve">
-    <value>CheckBox_NotifyIcon</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_NotifyIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_NotifyIcon.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_NotifyIcon.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Sound.Name" xml:space="preserve">
-    <value>CheckBox_Sound</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Sound.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Sound.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Sound.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 262</value>
-  </data>
-  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 59</value>
-  </data>
-  <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="GroupBox2.Text" xml:space="preserve">
-    <value>提醒设置</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Name" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="GroupBox2.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
   <data name="CheckBox_NotifyIcon.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -307,7 +256,7 @@
     <value>NoControl</value>
   </data>
   <data name="CheckBox_NotifyIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 37</value>
+    <value>40, 37</value>
   </data>
   <data name="CheckBox_NotifyIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 16</value>
@@ -334,7 +283,7 @@
     <value>True</value>
   </data>
   <data name="CheckBox_Sound.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 17</value>
+    <value>40, 17</value>
   </data>
   <data name="CheckBox_Sound.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 16</value>
@@ -357,9 +306,99 @@
   <data name="&gt;&gt;CheckBox_Sound.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="label2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 300</value>
+  </data>
+  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 59</value>
+  </data>
+  <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>提醒设置</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Name" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <metadata name="Logo_pictureBox.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
+  <data name="Logo_pictureBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Logo_pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Logo_pictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="Logo_pictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="Logo_pictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="Logo_pictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;Logo_pictureBox.Name" xml:space="preserve">
+    <value>Logo_pictureBox</value>
+  </data>
+  <data name="&gt;&gt;Logo_pictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Logo_pictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Logo_pictureBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <metadata name="SoftwareTitle.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SoftwareTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SoftwareTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="SoftwareTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 11</value>
+  </data>
+  <data name="SoftwareTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 17</value>
+  </data>
+  <data name="SoftwareTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="SoftwareTitle.Text" xml:space="preserve">
+    <value>待办清单 - 心倾</value>
+  </data>
+  <data name="SoftwareTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;SoftwareTitle.Name" xml:space="preserve">
+    <value>SoftwareTitle</value>
+  </data>
+  <data name="&gt;&gt;SoftwareTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SoftwareTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SoftwareTitle.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -370,7 +409,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 15</value>
+    <value>0, 5</value>
   </data>
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -391,50 +430,14 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>0</value>
   </data>
   <metadata name="ContextMenuStrip_richtextbox.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>350, 17</value>
   </metadata>
-  <data name="ContextMenuStrip_richtextbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 136</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip_richtextbox.Name" xml:space="preserve">
-    <value>ContextMenuStrip_richtextbox</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip_richtextbox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Richtextbox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10.5pt</value>
-  </data>
-  <data name="Richtextbox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 35</value>
-  </data>
-  <data name="Richtextbox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 220</value>
-  </data>
-  <data name="Richtextbox1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Richtextbox1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;Richtextbox1.Name" xml:space="preserve">
-    <value>Richtextbox1</value>
-  </data>
-  <data name="&gt;&gt;Richtextbox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Richtextbox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Richtextbox1.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
   <data name="粘贴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 22</value>
   </data>
@@ -471,11 +474,47 @@
   <data name="删除ToolStripMenuItem.Text" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="ContextMenuStrip_richtextbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 136</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip_richtextbox.Name" xml:space="preserve">
+    <value>ContextMenuStrip_richtextbox</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip_richtextbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Richtextbox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="Richtextbox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
+  </data>
+  <data name="Richtextbox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 225</value>
+  </data>
+  <data name="Richtextbox1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Richtextbox1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Richtextbox1.Name" xml:space="preserve">
+    <value>Richtextbox1</value>
+  </data>
+  <data name="&gt;&gt;Richtextbox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Richtextbox1.Parent" xml:space="preserve">
+    <value>SplitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;Richtextbox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="button_addtodo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="button_addtodo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="button_addtodo.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
   <data name="button_addtodo.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -484,10 +523,10 @@
     <value>NoControl</value>
   </data>
   <data name="button_addtodo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 327</value>
+    <value>433, 368</value>
   </data>
   <data name="button_addtodo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 25</value>
+    <value>64, 24</value>
   </data>
   <data name="button_addtodo.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -505,7 +544,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_addtodo.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <metadata name="NotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -516,6 +555,24 @@
   <metadata name="ContextMenuStrip_notifyicon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>128, 17</value>
   </metadata>
+  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="捐赠ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="捐赠ToolStripMenuItem.Text" xml:space="preserve">
+    <value>捐赠</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
   <data name="ContextMenuStrip_notifyicon.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 70</value>
   </data>
@@ -5042,32 +5099,17 @@
   <data name="NotifyIcon.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
-    <value>关于</value>
-  </data>
-  <data name="捐赠ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="捐赠ToolStripMenuItem.Text" xml:space="preserve">
-    <value>捐赠</value>
-  </data>
-  <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
-    <value>退出</value>
-  </data>
   <data name="button_importfile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
+  <data name="button_importfile.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
   <data name="button_importfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 327</value>
+    <value>123, 368</value>
   </data>
   <data name="button_importfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 25</value>
+    <value>64, 24</value>
   </data>
   <data name="button_importfile.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -5085,7 +5127,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_importfile.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>579, 17</value>
@@ -5096,11 +5138,14 @@
   <data name="button_exportfile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
+  <data name="button_exportfile.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
   <data name="button_exportfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 327</value>
+    <value>278, 368</value>
   </data>
   <data name="button_exportfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 25</value>
+    <value>64, 24</value>
   </data>
   <data name="button_exportfile.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -5118,7 +5163,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_exportfile.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <metadata name="Timer_FlickerNotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>871, 17</value>
@@ -5127,10 +5172,10 @@
     <value>Top, Bottom, Left</value>
   </data>
   <data name="TextBox_todo_title.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 24</value>
+    <value>280, 25</value>
   </data>
   <data name="TextBox_todo_title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 21</value>
+    <value>155, 21</value>
   </data>
   <data name="TextBox_todo_title.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -5157,7 +5202,7 @@
     <value>Right</value>
   </data>
   <data name="DateTimePicker1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 24</value>
+    <value>70, 25</value>
   </data>
   <data name="DateTimePicker1.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 21</value>
@@ -5180,11 +5225,14 @@
   <data name="GroupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="GroupBox1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
   <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>151, 262</value>
+    <value>160, 300</value>
   </data>
   <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>433, 59</value>
+    <value>450, 59</value>
   </data>
   <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -5202,11 +5250,17 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <metadata name="ContextMenuStrip_DataGridView1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 55</value>
   </metadata>
+  <data name="删除待办ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 22</value>
+  </data>
+  <data name="删除待办ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>删除待办</value>
+  </data>
   <data name="ContextMenuStrip_DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 26</value>
   </data>
@@ -5215,12 +5269,6 @@
   </data>
   <data name="&gt;&gt;ContextMenuStrip_DataGridView1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="删除待办ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 22</value>
-  </data>
-  <data name="删除待办ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>删除待办</value>
   </data>
   <metadata name="SerialNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -5298,13 +5346,10 @@
     <value>102</value>
   </data>
   <data name="DataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 35</value>
-  </data>
-  <data name="DataGridView1.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>340, 220</value>
+    <value>0, 25</value>
   </data>
   <data name="DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>340, 220</value>
+    <value>340, 225</value>
   </data>
   <data name="DataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -5316,10 +5361,10 @@
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;DataGridView1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;DataGridView1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>0</value>
   </data>
   <data name="Label_Statistics.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5328,7 +5373,7 @@
     <value>宋体, 8.5pt</value>
   </data>
   <data name="Label_Statistics.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 16</value>
+    <value>35, 6</value>
   </data>
   <data name="Label_Statistics.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 12</value>
@@ -5349,10 +5394,10 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label_Statistics.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;Label_Statistics.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>2</value>
   </data>
   <metadata name="FileSystemWatcher1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>271, 55</value>
@@ -5364,20 +5409,70 @@
     <value>89</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+    <value>96, 96</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
+  </data>
+  <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        4wvyHWWrmI0nngAAAABJRU5ErkJggg==
+</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>604, 361</value>
+    <value>620, 400</value>
   </data>
   <metadata name="contextMenuStrip_MainWindow.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>532, 55</value>
   </metadata>
+  <data name="关于ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="关于ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="捐赠toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="捐赠toolStripMenuItem1.Text" xml:space="preserve">
+    <value>捐赠</value>
+  </data>
   <data name="contextMenuStrip_MainWindow.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 48</value>
   </data>
@@ -5387,9 +5482,120 @@
   <data name="&gt;&gt;contextMenuStrip_MainWindow.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="NowTime.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="CloseForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="CloseForm.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="CloseForm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="CloseForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CloseForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>590, 5</value>
+  </data>
+  <data name="CloseForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="CloseForm.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;CloseForm.Name" xml:space="preserve">
+    <value>CloseForm</value>
+  </data>
+  <data name="&gt;&gt;CloseForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CloseForm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CloseForm.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="MaximizeForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="MaximizeForm.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="MaximizeForm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="MaximizeForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="MaximizeForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>560, 5</value>
+  </data>
+  <data name="MaximizeForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="MaximizeForm.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;MaximizeForm.Name" xml:space="preserve">
+    <value>MaximizeForm</value>
+  </data>
+  <data name="&gt;&gt;MaximizeForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MaximizeForm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MaximizeForm.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="MinimizeForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="MinimizeForm.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="MinimizeForm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="MinimizeForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>530, 5</value>
+  </data>
+  <data name="MinimizeForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="MinimizeForm.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;MinimizeForm.Name" xml:space="preserve">
+    <value>MinimizeForm</value>
+  </data>
+  <data name="&gt;&gt;MinimizeForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MinimizeForm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MinimizeForm.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="SplitContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 40</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel1.Name" xml:space="preserve">
+    <value>SplitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel1.Parent" xml:space="preserve">
+    <value>SplitContainer</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SplitContainer.Panel1MinSize" type="System.Int32, mscorlib">
+    <value>208</value>
+  </data>
   <data name="NowTime.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -5400,7 +5606,7 @@
     <value>NoControl</value>
   </data>
   <data name="NowTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>397, 16</value>
+    <value>35, 6</value>
   </data>
   <data name="NowTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 12</value>
@@ -5421,10 +5627,49 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;NowTime.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;NowTime.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel2.Name" xml:space="preserve">
+    <value>SplitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel2.Parent" xml:space="preserve">
+    <value>SplitContainer</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SplitContainer.Panel2MinSize" type="System.Int32, mscorlib">
+    <value>238</value>
+  </data>
+  <data name="SplitContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 250</value>
+  </data>
+  <data name="SplitContainer.SplitterDistance" type="System.Int32, mscorlib">
+    <value>340</value>
+  </data>
+  <data name="SplitContainer.SplitterWidth" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="SplitContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Name" xml:space="preserve">
+    <value>SplitContainer</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SplitContainer.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -23612,18 +23857,6 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="关于ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="关于ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>关于</value>
-  </data>
-  <data name="捐赠toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="捐赠toolStripMenuItem1.Text" xml:space="preserve">
-    <value>捐赠</value>
   </data>
   <metadata name="Timer_AlarmDetect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>774, 55</value>

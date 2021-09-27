@@ -3,7 +3,7 @@
 using System.ComponentModel;
 //using System.Data;
 using System.Drawing;
-using System.Text;
+//using System.Text;
 using System.Windows.Forms;
 using System.IO;
 //using System.Text.RegularExpressions;
@@ -15,13 +15,13 @@ namespace To_do_List
 {
     public partial class MainWindow : Form
     {
-        internal static string Version = "1.3.2.2";//程序版本，更改后仍需修改MainWindow函数中的数据文件版本号判断。
+        internal static string Version = "1.5.3.2";//程序版本，更改后仍需修改MainWindow函数中的数据文件版本号判断。
         public static int LineCount = 0;//统计数据文件（To-do_List_Data.to-do_list_data）内容行数，从 1 起计。
         int TodoCount = 0;//统计未完成项数。
         string[,] TodoList = new string[300005,5];//读取数据文件（To-do_List_Data.to-do_list_data）内容并将其写入该数组。如果TodoList[n,0]为Deleted，则表示该项已被删除，可重用。
         int TodoID;//待办项唯一编号，从文件中读取赋值。只加不减。
-        string OriginalDateFileContent = Version + "\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\tNull\n---------------------------------------------------------------";
-        FiltrateSortAndAlarm Alarm;
+        string OriginalDateFileContent = Version + "\n这是待办清单的数据文件，请勿修改或删除。\t" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "\tTrue\tTrue\n---------------------------------------------------------------\n0\tNull\tNull\n---------------------------------------------------------------";
+        FiltrateSortAndAlarm Alarm = new FiltrateSortAndAlarm();
         Boolean Ready = false;//程序操作DataGridView完成状态标识。
 
 
@@ -97,13 +97,28 @@ namespace To_do_List
             reader.Dispose();
             //
             //
-            if (TodoList[0,0] != "1.0.0.0" && TodoList[0, 0] != "1.0.1.1" && TodoList[0, 0] != "1.1.1.1" && TodoList[0, 0] != "1.2.1.1" && TodoList[0, 0] != "1.3.2.2")
+            if (TodoList[0, 0] != "1.5.3.2" && TodoList[0,0] != "1.0.0.0" && TodoList[0, 0] != "1.0.1.1" && TodoList[0, 0] != "1.1.1.1" && TodoList[0, 0] != "1.2.1.1" && TodoList[0, 0] != "1.3.2.2")
             {
                 MessageBox.Show("无法识别数据文件，因为数据文件版本(" + TodoList[0, 0] + ")不在该版本程序(" + Version + ")支持范围内。\n\n请备份并删除原文件后再使用本软件。如其中有重要内容，请联系作者尝试恢复。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.NotifyIcon.Dispose();
                 Application.Exit();
                 Environment.Exit(0);
             }//判断数据文件版本。
+            if(TodoList[3, 2] != "Default")
+            {
+                try
+                {
+                    int R = System.Convert.ToInt32(TodoList[3, 2].Split(',')[0]);
+                    int G = System.Convert.ToInt32(TodoList[3, 2].Split(',')[1]);
+                    int B = System.Convert.ToInt32(TodoList[3, 2].Split(',')[2]);
+                    this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+                }
+                catch
+                {
+                    //this.BackColor = SystemColors.Control;
+                }
+            }
+
             //
             if (TodoList[3,1] != "Null")
             {
@@ -181,9 +196,10 @@ namespace To_do_List
                 CheckBox_NotifyIcon.Checked = false;
             }
             this.Label_Statistics.Text = "（总计 " + (LineCount - 5).ToString() + " 项，还有 " + TodoCount.ToString() +" 项待办）";
-            FiltrateSortAndAlarm Alarm = new FiltrateSortAndAlarm();
             Alarm.Filtrate(TodoList);
             Ready = true;
+            NormalLeft = Left;
+            NormalTop = Top;
         }
  
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -194,13 +210,15 @@ namespace To_do_List
 
         private void MainWindow_Resize(object sender, EventArgs e)
         {
-            this.DataGridView1.Height = this.Height - 180;
-            this.Richtextbox1.Height = this.DataGridView1.Height;
-            this.Richtextbox1.Width = this.Width-403;
-            this.TextBox_todo_title.Width = this.Richtextbox1.Width - 63;
-            this.button_exportfile.Location = new Point(this.Width / 2 - 35, this.Height - 73);
-            this.button_importfile.Location = new Point(this.Width / 4 - 35, this.Height - 73);
-            this.button_addtodo.Location = new Point(this.Width /4 * 3 - 35, this.Height - 73);
+            //this.DataGridView1.Height = this.Height - 180;
+            //this.Richtextbox1.Height = this.DataGridView1.Height;
+            //this.Richtextbox1.Width = this.Width-403;
+            this.SplitContainer.Width = this.Width - 20;
+            this.SplitContainer.Height = this.Height - 150;
+            this.TextBox_todo_title.Width = this.Width - 465;
+            this.button_exportfile.Location = new Point(this.Width / 2 - 32, this.Height - 32);
+            this.button_importfile.Location = new Point(this.Width / 4 - 32, this.Height - 32);
+            this.button_addtodo.Location = new Point(this.Width /4 * 3 - 32, this.Height - 32);
         }
 
         private void Addtodo_button_Click(object sender, EventArgs e)//添加待办按钮。
@@ -272,25 +290,22 @@ namespace To_do_List
                 {
                     if (Command.Split('=')[1] == "Null")
                     {
-                        if (TodoList[3, 1] != "Null")
+                        TodoList[3, 1] = "Null";
+                        try
                         {
-                            TodoList[3, 1] = "Null";
-                            try
+                            StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
+                            for (int i = 0; i <= LineCount - 1; i++)
                             {
-                                StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
-                                for (int i = 0; i <= LineCount - 1; i++)
-                                {
-                                    write.WriteLine(TodoList[i, 0] + "\t" + TodoList[i, 1] + "\t" + TodoList[i, 2] + "\t" + TodoList[i, 3] + "\t" + TodoList[i, 4]);
-                                }
-                                write.Close();
-                                write.Dispose();
+                                write.WriteLine(TodoList[i, 0] + "\t" + TodoList[i, 1] + "\t" + TodoList[i, 2] + "\t" + TodoList[i, 3] + "\t" + TodoList[i, 4]);
                             }
-                            catch
-                            {
-                                MessageBox.Show("写入数据时遇到错误，请检查软件权限或数据文件有效性。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            write.Close();
+                            write.Dispose();
                         }
-                        this.BackgroundImage = null;
+                        catch
+                        {
+                            MessageBox.Show("写入数据时遇到错误，请检查软件权限或数据文件有效性。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        this.BackgroundImage = Properties.Resources.FormBorder;
                         Richtextbox1.Text = "清除背景图像成功！\n\n如需设置背景图像，请在数据目录（To-do_List）中放入图像文件（支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png）并执行To-do_List.SetBackgroundImage=xxx命令，其中“xxx”为包含后缀的图像文件名。\n\n完整命令示例：\nTo-do_List.SetBackgroundImage=BackgroundImage.jpg";
                     }
                     else
@@ -335,7 +350,54 @@ namespace To_do_List
                             MessageBox.Show("不支持指定的文件，请输入正确指定背景图像文件的命令！\n\n完整命令示例：\nTo-do_List.SetBackgroundImage=BackgroundImage.jpg\n\n仅支持*.jpg|*.jpeg|*.gif|*.bmp|*.wmf|*.png格式的图像文件。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                }//设置背景图像
+                }//设置背景图像。
+                else if(Command.Split('=')[0] == "SetBackColor")
+                {
+                    Boolean Right = false;
+                    if (Command.Split('=')[1] == "Default")
+                    {
+                        this.BackColor = SystemColors.Control;
+                        this.BackgroundImage = Properties.Resources.FormBorder;
+                        TodoList[3, 1] = "Null";
+                        TodoList[3, 2] = "Default";
+                        Right = true;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            int R = System.Convert.ToInt32(Command.Split('=')[1].Split(',')[0]);
+                            int G = System.Convert.ToInt32(Command.Split('=')[1].Split(',')[1]);
+                            int B = System.Convert.ToInt32(Command.Split('=')[1].Split(',')[2]);
+                            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+                            this.BackgroundImage = Properties.Resources.FormBorder;
+                            Right = true;
+                        }
+                        catch
+                        {
+                            Richtextbox1.Text = "参数输入错误！请输入正确的RGB颜色指令。\n\n将背景色设置为白色的命令示例：\nTo-do_List.SetBackColor=255,255,255\n\n如需还原为默认背景色，请输入：To-do_List.SetBackColor=Default\n";
+                        }
+                    }
+                    if (Right == true)
+                    {
+                        TodoList[3, 1] = "Null";
+                        TodoList[3, 2] = Command.Split('=')[1];
+                        try
+                        {
+                            StreamWriter write = File.CreateText(@Application.StartupPath.ToString() + "\\To-do_List\\To-do_List_Data.to-do_list_data");
+                            for (int i = 0; i <= LineCount - 1; i++)
+                            {
+                                write.WriteLine(TodoList[i, 0] + "\t" + TodoList[i, 1] + "\t" + TodoList[i, 2] + "\t" + TodoList[i, 3] + "\t" + TodoList[i, 4]);
+                            }
+                            write.Close();
+                            write.Dispose();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("写入数据时遇到错误，请检查软件权限或数据文件有效性。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }//修改窗口背景颜色。
                 else if(Command == "ResetDataFile")
                 {
                     DialogResult ask = MessageBox.Show("此操作将会清空所有待办项并重新生成数据文件（不会删除待办详情文件，但在添加新待办项时会覆盖原文件），重置后本软件将会自动重启，是否继续？", "注意：重置数据文件", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -374,7 +436,7 @@ namespace To_do_List
             {
                 try
                 {
-                    Alarm.Stop();
+                    Alarm.AlarmTimer.Stop();
                 }
                 catch (NullReferenceException)
                 {
@@ -428,7 +490,6 @@ namespace To_do_List
                     button_addtodo.Visible = false;
                 }
                 DataGridView1.Focus();
-                Alarm = new FiltrateSortAndAlarm();
                 Alarm.Filtrate(TodoList);
                 Ready = true;
             }//添加待办。
@@ -737,7 +798,7 @@ namespace To_do_List
             {
                 try
                 {
-                    Alarm.Stop();
+                    Alarm.AlarmTimer.Stop();
                 }
                 catch (NullReferenceException)
                 {
@@ -815,7 +876,6 @@ namespace To_do_List
                     }
                 }
                 this.Label_Statistics.Text = "（总计 " + (LineCount - 5).ToString() + " 项，还有 " + TodoCount.ToString() + " 项待办）";
-                Alarm = new FiltrateSortAndAlarm();
                 Alarm.Filtrate(TodoList);
                 Ready = true;
             }
@@ -827,7 +887,7 @@ namespace To_do_List
             {
                 try
                 {
-                    Alarm.Stop();
+                    Alarm.AlarmTimer.Stop();
                 }
                 catch (NullReferenceException)
                 {
@@ -867,7 +927,6 @@ namespace To_do_List
                     MessageBox.Show("在更新待办数据文件时遇到错误，无法保存数据！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 this.Label_Statistics.Text = "（总计 " + (LineCount-5).ToString() + " 项，还有 " + TodoCount.ToString() + " 项待办）";
-                Alarm = new FiltrateSortAndAlarm();
                 Alarm.Filtrate(TodoList);
             }
         }
@@ -1012,8 +1071,10 @@ namespace To_do_List
             {
                 try
                 {
-                    SoundPlayer a = new SoundPlayer();
-                    a.SoundLocation = @Application.StartupPath.ToString() + "\\To-do_List\\Notify.wav";
+                    SoundPlayer a = new SoundPlayer
+                    {
+                        SoundLocation = @Application.StartupPath.ToString() + "\\To-do_List\\Notify.wav"
+                    };
                     a.Play();
                 }
                 catch
@@ -1076,13 +1137,211 @@ namespace To_do_List
                 MessageBox.Show("在更新待办数据文件时遇到错误，无法保存数据！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //
+        private Point MouseOffset;
+        private bool MouseDrag = false;//判断是否是鼠标拖动窗口。
+        private int NormalTop, NormalLeft;//记录拖动窗口最大化前的位置。
+        private void MainWindow_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseOffset.X = e.X;
+                MouseOffset.Y = e.Y;
+                MouseDrag = true;
+                //MessageBox.Show(MouseOffset.Y.ToString());
+            }
+        }
+        private void MainWindow_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (MouseDrag == true && e.Button == MouseButtons.Left && MouseOffset.Y <= 30 && this.WindowState == FormWindowState.Normal && MousePosition.Y == 0)
+            {
+                this.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                this.WindowState = FormWindowState.Maximized;
+            }
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDrag = false;
+            }
+        }
+        private void MainWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (MouseDrag == true && e.Button == MouseButtons.Left && MouseOffset.Y <= 30 && this.WindowState == FormWindowState.Normal)
+            {
+                Top = MousePosition.Y - MouseOffset.Y;
+                Left = MousePosition.X - MouseOffset.X;
+                NormalTop = Top;
+                NormalLeft = Left;
+            }//拖动窗口。
+            else if(MouseDrag == true && e.Button == MouseButtons.Left && MouseOffset.Y <= 30 && this.WindowState == FormWindowState.Maximized)
+            {
+                Top = 0;
+                Left = NormalLeft;
+                this.WindowState = FormWindowState.Normal;
+                MouseOffset.X = this.Width / 2;
+                MouseOffset.Y = 15;
+            }//窗口最大化时拖动还原。
+        }
+
+        private void SoftwareTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseOffset.X = e.X + 36;
+                MouseOffset.Y = e.Y + 11;
+                MouseDrag = true;
+            }
+        }
+        private void SoftwareTitle_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (MouseDrag == true && e.Button == MouseButtons.Left && MouseOffset.Y <= 30 && this.WindowState == FormWindowState.Normal && MousePosition.Y == 0)
+            {
+                this.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                this.WindowState = FormWindowState.Maximized;
+            }
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDrag = false;
+            }
+        }
+        private void SplitContainer_Resize(object sender, EventArgs e)
+        {
+            this.DataGridView1.Height = SplitContainer.Panel1.Height - 25;
+            this.DataGridView1.Width = SplitContainer.Panel1.Width;
+            this.Richtextbox1.Height = SplitContainer.Panel2.Height - 25;
+            this.Richtextbox1.Width = SplitContainer.Panel2.Width;
+        }
+
+        private void SplitContainer_Paint(object sender, PaintEventArgs e)
+        {
+            this.DataGridView1.Height = SplitContainer.Panel1.Height - 25;
+            this.DataGridView1.Width = SplitContainer.Panel1.Width;
+            this.Richtextbox1.Height = SplitContainer.Panel2.Height - 25;
+            this.Richtextbox1.Width = SplitContainer.Panel2.Width;
+        }
+
+        private void SoftwareTitle_DoubleClick(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                Top = NormalTop;
+                Left = NormalLeft;
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void MainWindow_DoubleClick(object sender, EventArgs e)
+        {
+            if ((MousePosition.Y - Top) <= 30)
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    Top = NormalTop;
+                    Left = NormalLeft;
+                    this.WindowState = FormWindowState.Normal;
+                }
+                else
+                {
+                    this.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                    this.WindowState = FormWindowState.Maximized;
+                }
+            }
+        }
+
+        //
+
+        //改变窗口大小。
+        const int WM_NCHITTEST = 0x0084;
+        const int HTLEFT = 10;
+        const int HTRIGHT = 11;
+        const int HTTOP = 12;
+        const int HTTOPLEFT = 13;
+        const int HTTOPRIGHT = 14;
+        const int HTBOTTOM = 15;
+        const int HTBOTTOMLEFT = 0x10;
+        const int HTBOTTOMRIGHT = 17;
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            switch (m.Msg)
+            {
+                case WM_NCHITTEST:
+                    Point vPoint = new Point((int)m.LParam & 0xFFFF,
+                        (int)m.LParam >> 16 & 0xFFFF);
+                    vPoint = PointToClient(vPoint);
+                    if (vPoint.X <= 5)
+                        if (vPoint.Y <= 5)
+                            m.Result = (IntPtr)HTTOPLEFT;
+                        else if (vPoint.Y >= ClientSize.Height - 5)
+                            m.Result = (IntPtr)HTBOTTOMLEFT;
+                        else m.Result = (IntPtr)HTLEFT;
+                    else if (vPoint.X >= ClientSize.Width - 5)
+                        if (vPoint.Y <= 5)
+                            m.Result = (IntPtr)HTTOPRIGHT;
+                        else if (vPoint.Y >= ClientSize.Height - 5)
+                            m.Result = (IntPtr)HTBOTTOMRIGHT;
+                        else m.Result = (IntPtr)HTRIGHT;
+                    else if (vPoint.Y <= 5)
+                        m.Result = (IntPtr)HTTOP;
+                    else if (vPoint.Y >= ClientSize.Height - 5)
+                        m.Result = (IntPtr)HTBOTTOM;
+                    break;
+            }
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_MINIMIZEBOX = 0x00020000;  // Winuser.h定义
+                CreateParams cp = base.CreateParams;
+                cp.Style |= WS_MINIMIZEBOX;   // 最小化
+                return cp;
+            }
+        }
+        //改变窗口大小。
+
+        private void MinimizeForm_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void MaximizeForm_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                Top = NormalTop;
+                Left = NormalLeft;
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void CloseForm_Click(object sender, EventArgs e)
+        {
+            bool ask = this.AskExitSoftware();
+            if (ask)
+            {
+                this.ExitSoftware(false);
+            }
+        }
+
+
     }
 }
 
 
 public class FiltrateSortAndAlarm
 {
-    public string AlarmTime;
+    private string AlarmTime;
 
     internal void Filtrate(string[,] OriginalArr)
     {
@@ -1108,13 +1367,15 @@ public class FiltrateSortAndAlarm
         Alarm();
     }
 
-    System.Timers.Timer AlarmTimer;
+    public System.Timers.Timer AlarmTimer;
     private void Alarm()
     {
         if(AlarmTimer == null)
         {
-            AlarmTimer = new System.Timers.Timer();
-            AlarmTimer.Interval = 1000;
+            AlarmTimer = new System.Timers.Timer
+            {
+                Interval = 1000
+            };
             AlarmTimer.Elapsed += new System.Timers.ElapsedEventHandler(AlarmTimer_Tick);
             AlarmTimer.AutoReset = true;
             AlarmTimer.Enabled = true;
@@ -1125,9 +1386,9 @@ public class FiltrateSortAndAlarm
     {
         if (AlarmTime != null && string.Compare(AlarmTime, DateTime.Now.ToString("yyyy-MM-dd HH:mm")) <= 0)
         {
+            To_do_List.MainWindow.Notify_Status = true;
             AlarmTimer.Stop();
             //AlarmTimer.Dispose();
-            To_do_List.MainWindow.Notify_Status = true;
         }
         else if(AlarmTime != null && string.Compare(AlarmTime, DateTime.Now.ToString("yyyy-MM-dd HH:mm")) > 0)
         {
@@ -1138,15 +1399,9 @@ public class FiltrateSortAndAlarm
         }
         else
         {
+            To_do_List.MainWindow.Notify_Status = false;
             AlarmTimer.Stop();
             //AlarmTimer.Dispose();
-            To_do_List.MainWindow.Notify_Status = false;
         }
-    }
-
-    public void Stop()
-    {
-        AlarmTimer.Stop();
-        //AlarmTimer.Dispose();
     }
 }

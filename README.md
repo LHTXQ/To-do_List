@@ -1,7 +1,16 @@
 # 待办清单（To-do_List）
 
 
-![image](https://user-images.githubusercontent.com/38943319/134613400-51b5c8a8-0d0a-40f6-b0cd-a1e235ee74b4.png)
+![image](https://user-images.githubusercontent.com/38943319/134846226-451d124f-5c86-42a7-8620-34a9a307e51a.png)
+
+
+
+2021-09-27 待办清单 版本号：1.5.3.2  下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.5.3.2
+
+	1、更改：更改程序界面；
+	2、新增：可自定义界面背景颜色；
+	3、新增：可更改列表框与详情框宽度，但引入了新的问题：在最大化窗口并使详情框过窄的情况下还原窗口大小会导致看不到详情框；
+	4、修复：修改了可能导致提醒功能失效的代码。
 
 
 

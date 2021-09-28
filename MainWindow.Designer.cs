@@ -89,6 +89,7 @@ namespace To_do_List
             this.MinimizeForm = new System.Windows.Forms.Button();
             this.MaximizeForm = new System.Windows.Forms.Button();
             this.CloseForm = new System.Windows.Forms.Button();
+            this.ColorDialog_BackColor = new System.Windows.Forms.ColorDialog();
             label1 = new System.Windows.Forms.Label();
             label_finaltimelabel = new System.Windows.Forms.Label();
             label_todotitlelabel = new System.Windows.Forms.Label();
@@ -519,6 +520,7 @@ namespace To_do_List
             // 
             // SplitContainer
             // 
+            this.SplitContainer.BackColor = System.Drawing.Color.Transparent;
             this.SplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             resources.ApplyResources(this.SplitContainer, "SplitContainer");
             this.SplitContainer.Name = "SplitContainer";
@@ -576,8 +578,15 @@ namespace To_do_List
             this.CloseForm.UseVisualStyleBackColor = false;
             this.CloseForm.Click += new System.EventHandler(this.CloseForm_Click);
             // 
+            // ColorDialog_BackColor
+            // 
+            this.ColorDialog_BackColor.AnyColor = true;
+            this.ColorDialog_BackColor.Color = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ColorDialog_BackColor.FullOpen = true;
+            // 
             // MainWindow
             // 
+            this.AcceptButton = this.button_addtodo;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
@@ -671,6 +680,7 @@ namespace To_do_List
         private System.Windows.Forms.Button CloseForm;
         private System.Windows.Forms.Button MaximizeForm;
         private System.Windows.Forms.Button MinimizeForm;
+        private System.Windows.Forms.ColorDialog ColorDialog_BackColor;
     }
 }
 

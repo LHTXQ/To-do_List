@@ -4,7 +4,7 @@
 ![image](https://user-images.githubusercontent.com/38943319/134846226-451d124f-5c86-42a7-8620-34a9a307e51a.png)
 
 
-2021-09-28 不再在README添加发版说明，请自行查看Release。也可能不在更新README。
+2021-09-28 不再在README添加发版说明，请自行查看Release。也可能不再更新README。
 
 
 2021-09-27 待办清单 版本号：1.5.3.2  下载链接：https://github.com/LHTXQ/To-do_List/releases/tag/1.5.3.2

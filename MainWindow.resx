@@ -484,7 +484,7 @@
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Richtextbox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10.5pt</value>
+    <value>微软雅黑, 11pt</value>
   </data>
   <data name="Richtextbox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 25</value>
@@ -5417,7 +5417,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAmwAAAGQCAYAAAATLTzaAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
-        IwAALiMBeKU/dgAAB3RJREFUeF7t1jENwgAUANG6BgcgAxeMZauWqiifpGmCgxve8JKTcMvy2g8AAMLO
+        IgAALiIBquLdkgAAB3RJREFUeF7t1jENwgAUANG6BgcgAxeMZauWqiifpGmCgxve8JKTcMvy2g8AAMLO
         2MYTAICUz7iG7TF+DQBAx30YNgCAMMMGABBn2AAA4gwbAECcYQMAiDNsAABxhg0AIM6wAQDEGTYAgDjD
         BgAQZ9gAAOIMGwBAnGEDAIgzbAAAcYYNACDOsAEAxBk2AIA4wwYAEGfYAADiDBsAQJxhAwCIM2wAAHGG
         DQAgzrABAMQZNgCAOMMGABBn2AAA4gwbAECcYQMAiDNsAABxhg0AIM6wAQDEGTYAgDjDBgAQZ9gAAOIM

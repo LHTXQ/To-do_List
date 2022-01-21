@@ -32,23 +32,20 @@ namespace To_do_List
             System.Windows.Forms.PictureBox pictureBox3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonateForm));
             System.Windows.Forms.PictureBox pictureBox2;
-            System.Windows.Forms.PictureBox pictureBox1;
             System.Windows.Forms.Label label1;
             this.button1 = new System.Windows.Forms.Button();
             pictureBox3 = new System.Windows.Forms.PictureBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox3
             // 
             pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            pictureBox3.Location = new System.Drawing.Point(537, 50);
+            pictureBox3.Location = new System.Drawing.Point(458, 50);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new System.Drawing.Size(250, 250);
             pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -59,23 +56,12 @@ namespace To_do_List
             // 
             pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            pictureBox2.Location = new System.Drawing.Point(274, 50);
+            pictureBox2.Location = new System.Drawing.Point(87, 50);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(250, 250);
             pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            pictureBox1.Location = new System.Drawing.Point(14, 50);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(250, 250);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -107,7 +93,6 @@ namespace To_do_List
             this.Controls.Add(label1);
             this.Controls.Add(pictureBox3);
             this.Controls.Add(pictureBox2);
-            this.Controls.Add(pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -117,7 +102,6 @@ namespace To_do_List
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

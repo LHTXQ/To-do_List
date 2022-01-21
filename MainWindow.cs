@@ -15,7 +15,7 @@ namespace To_do_List
 {
     public partial class MainWindow : Form
     {
-        internal static string Version = "1.5.4.2";//程序版本，更改后仍需修改MainWindow函数中的数据文件版本号判断。
+        internal static string Version = "1.5.6.3";//程序版本，更改后仍需修改MainWindow函数中的数据文件版本号判断。
         public static int LineCount = 0;//统计数据文件（To-do_List_Data.to-do_list_data）内容行数，从 1 起计。
         int TodoCount = 0;//统计未完成项数。
         string[,] TodoList = new string[300005,5];//读取数据文件（To-do_List_Data.to-do_list_data）内容并将其写入该数组。如果TodoList[n,0]为Deleted，则表示该项已被删除，可重用。
@@ -55,6 +55,23 @@ namespace To_do_List
 
             //
             InitializeComponent();
+            if (Settings.Default.MWndLeft < 0 || Settings.Default.MWndTop < 0)
+            {
+                this.Left = 73;
+                this.Top = 73;
+            }
+            else
+            {
+                this.Left = Settings.Default.MWndLeft;
+                this.Top = Settings.Default.MWndTop;
+            }
+            this.Height = Settings.Default.MWndHeight;
+            this.Width = Settings.Default.MWndWidth;
+            if (Settings.Default.MWndIsNormal == false)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            this.SplitContainer.SplitterDistance = Settings.Default.SplitterDistance;
             //初始化组件。
 
             //
@@ -576,6 +593,20 @@ namespace To_do_List
         private void ExitSoftware(bool a)//boolean a是用来判断关闭操作是由窗口关闭按钮触发还是由状态图标触发，true为窗口关闭按钮触发。
         {
             //退出前需保存所有内容。
+            Settings.Default.MWndHeight= this.Height;
+            Settings.Default.MWndWidth= this.Width;
+            Settings.Default.MWndLeft= this.Left;
+            Settings.Default.MWndTop= this.Top;
+            Settings.Default.SplitterDistance= this.SplitContainer.SplitterDistance;
+            if (WindowState == FormWindowState.Maximized)
+            {
+                Settings.Default.MWndIsNormal = false;
+            }
+            else
+            {
+                Settings.Default.MWndIsNormal = true;
+            }
+            Settings.Default.Save();
             this.NotifyIcon.Dispose();
             if(!a)
             {
